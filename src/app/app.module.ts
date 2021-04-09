@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { PropertyListComponent } from './property/property-list/property-list.component';
@@ -8,19 +9,26 @@ import { PropertyDetailsComponent } from './property/property-details/property-d
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedService } from './service/shared.service';
+import { AddPropertyComponent } from './property/add-property/add-property.component';
 
-
+const appRoutes: Routes = [
+  { path: 'add-property', component: AddPropertyComponent },
+  { path: 'property-details', component: PropertyDetailsComponent },
+  { path: '', component: PropertyListComponent }
+];
 @NgModule({
   declarations: [
     AppComponent,
     PropertyListComponent,
     PropertyCardComponent,
     PropertyDetailsComponent,
-    NavBarComponent
+    NavBarComponent,
+    AddPropertyComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     SharedService
