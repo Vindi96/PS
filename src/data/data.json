@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 1,
+    "Name": "Home Vila",
+    "Type": "House",
+    "Price": "$1200"
+  },
+  {
+    "Id": 2,
+    "Name": "Kadalla",
+    "Type": "House",
+    "Price": "$1500"
+  },
+  {
+    "Id": 3,
+    "Name": "Thuru Sewana",
+    "Type": "House",
+    "Price": "$1700"
+  },
+  {
+    "Id": 4,
+    "Name": "Mark Hill",
+    "Type": "House",
+    "Price": "$1200"
+  },
+  {
+    "Id": 5,
+    "Name": "Village",
+    "Type": "House",
+    "Price": "$2200"
+  }
+]
