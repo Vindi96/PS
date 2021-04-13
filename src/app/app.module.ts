@@ -13,8 +13,9 @@ import { AddPropertyComponent } from './property/add-property/add-property.compo
 
 const appRoutes: Routes = [
   { path: 'add-property', component: AddPropertyComponent },
-  { path: 'property-details', component: PropertyDetailsComponent },
-  { path: '', component: PropertyListComponent }
+  { path: 'property-details/:id', component: PropertyDetailsComponent },
+  { path: '', component: PropertyListComponent },
+  { path: '**', component: PropertyListComponent }
 ];
 @NgModule({
   declarations: [

@@ -2,30 +2,39 @@
   {
     "Id": 1,
     "Name": "Home Vila",
+    "SellRent": 1,
     "Type": "House",
-    "Price": "$1200"
+    "Price": "$1200",
+    "img": "prop-1"
   },
   {
     "Id": 2,
     "Name": "Kadalla",
+    "SellRent": 1,
     "Type": "House",
-    "Price": "$1500"
+    "Price": "$1500",
+    "img": "prop-2"
   },
   {
     "Id": 3,
     "Name": "Thuru Sewana",
+    "SellRent": 2,
     "Type": "House",
-    "Price": "$1700"
+    "Price": "$1700",
+    "img": "prop-3"
   },
   {
     "Id": 4,
     "Name": "Mark Hill",
+    "SellRent": 1,
     "Type": "House",
-    "Price": "$1200"
+    "Price": "$1200",
+    "img": "prop-4"
   },
   {
     "Id": 5,
     "Name": "Village",
+    "SellRent": 1,
     "Type": "House",
     "Price": "$2200"
   }

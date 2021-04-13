@@ -8,7 +8,7 @@ export class SharedService {
 
   constructor(private http: HttpClient) { }
   // tslint:disable-next-line:typedef
-  getAllProperties() {
+  getAllProperties(SellRent: number) {
     return this.http.get('../../../data/data.json');
   }
 }

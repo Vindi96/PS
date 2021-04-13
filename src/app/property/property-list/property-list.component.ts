@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../service/shared.service';
+import { ActivatedRoute } from '../../../../node_modules/@angular/router';
 
 
 @Component({
@@ -8,12 +9,15 @@ import { SharedService } from '../../service/shared.service';
   styleUrls: ['./property-list.component.css']
 })
 export class PropertyListComponent implements OnInit {
-
-  constructor(private service: SharedService) { }
+  SellRent = 1;
+  constructor(private route: ActivatedRoute, private service: SharedService) { }
   properties: any;
 
   ngOnInit(): void {
-    this.service.getAllProperties().subscribe(
+    if (this.route.snapshot.url.toString()) {
+      this.SellRent = 2;
+    }
+    this.service.getAllProperties(this.SellRent).subscribe(
       data => {
         this.properties = data;
         console.log(data);
