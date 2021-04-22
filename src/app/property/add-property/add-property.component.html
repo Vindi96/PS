@@ -3,24 +3,28 @@
     Add New Property
   </div>
   <div class="card-body">
-    <form>
+    <form (ngSubmit)="onSubmit(Form)" #Form="ngForm">
       <div class="form-group col-12">
         <label for="name">Name</label>
-        <input type="name" class="form-control">
+        <input type="name" class="form-control" #propName="ngModel" ngModel name='Name' required minlength="5">
+        <span *ngIf="!propName.valid && propName.touched" class=error-block>
+          <span *ngIf="propName.errors?.required">Provide your name</span>
+          <span *ngIf="propName.errors?.minlength">Name should contain at least 5 charachters</span>
+        </span>
       </div>
 
       <div class="form-group col-12">
         <label for="type">Type</label>
-        <input type="name" class="form-control">
+        <input type="name" class="form-control" ngModel name='Type'>
       </div>
 
       <div class="form-group col-12">
         <label for="price">Price</label>
-        <input type="name" class="form-control">
+        <input type="name" class="form-control" ngModel name='Price'>
       </div>
 
       <div class="form-group col-12">
-        <button type="submit" class="btn btn-primary mr-2">Save</button>
+        <button [disabled]="!Form.valid" type="submit" class="btn btn-primary mr-2">Save</button>
         <button type="reset" class="btn btn-primary mr-2">Cancel</button>
       </div>
     </form>

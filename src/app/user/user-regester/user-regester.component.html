@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-6 m-auto">
+    <div class="card m-auto">
+      <div class="card-header">
+        Regester
+      </div>
+      <div class="card-body">
+        <form [formGroup]="registerationForm" (ngSubmit)="onSubmit()">
+          <div class="form-group col-12">
+            <label for="name">Name</label>
+            <input type="name" class="form-control" formControlName='userName'>
+            <span *ngIf="!userName.valid && userName.touched" class="error-block">Provide your name</span>
+          </div>
+
+          <div class="form-group col-12">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" formControlName='email'>
+            <span *ngIf="!email.valid && email.touched" class="error-block">
+              <span *ngIf="email.hasError('required')">Please provide a email Id</span>
+              <span *ngIf="email.hasError('email')">email is not valid</span>
+            </span>
+          </div>
+
+          <div class="form-group col-12">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" formControlName='password'>
+            <span *ngIf="!password.valid && password.touched" class="error-block">
+              <span *ngIf="password.hasError('required')">Provide a password</span>
+              <span *ngIf="password.hasError('minlength')">password should contain at least 8 characters</span>
+            </span>
+          </div>
+
+          <div class="form-group col-12">
+            <label for="password">Confirm Password</label>
+            <input type="password" class="form-control" formControlName='confirmPassword'>
+            <span *ngIf="!confirmPass.valid && confirmPass.touched" class="error-block">
+              <span *ngIf="confirmPass.hasError('required')">Confirm your password</span>
+              <span *ngIf="registerationForm.hasError('notmatched') && confirmPass.valid">Password not matched</span>
+            </span>
+          </div>
+
+          <div class="form-group col-12">
+            <label for="mobile">Mobile</label>
+            <input type="mobile" class="form-control" formControlName='mobile'>
+            <span *ngIf="!mobile.valid && mobile.touched" class="error-block">Provide your mobile number</span>
+          </div>
+
+          <div class="form-group col-12">
+            <button type="submit" class="btn btn-primary mr-2">Save</button>
+            <button type="reset" class="btn btn-secondary mr-2">Cancel</button>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+
+
+  </div>
+</div>

@@ -10,12 +10,18 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedService } from './service/shared.service';
 import { AddPropertyComponent } from './property/add-property/add-property.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserRegesterComponent } from './user/user-regester/user-regester.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 
 const appRoutes: Routes = [
   { path: 'add-property', component: AddPropertyComponent },
   { path: 'property-details/:id', component: PropertyDetailsComponent },
+  { path: 'user-regester', component: UserRegesterComponent },
+  { path: 'user-login', component: UserLoginComponent },
   { path: '', component: PropertyListComponent },
-  { path: '**', component: PropertyListComponent }
+  { path: '**', component: PropertyListComponent },
+
 ];
 @NgModule({
   declarations: [
@@ -24,11 +30,16 @@ const appRoutes: Routes = [
     PropertyCardComponent,
     PropertyDetailsComponent,
     NavBarComponent,
-    AddPropertyComponent
+    AddPropertyComponent,
+    UserRegesterComponent,
+    UserLoginComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
