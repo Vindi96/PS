@@ -9,6 +9,8 @@ export class PropertyCardComponent implements OnInit {
 
   constructor() { }
   @Input() property: any;
+  @Input()
+  hideIcon!: boolean;
 
   ngOnInit(): void {
   }

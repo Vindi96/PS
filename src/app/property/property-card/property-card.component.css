@@ -1,7 +1,17 @@
-
+.card{
+  min-height: 400px;
+}
 .card-img-wrapper{
   overflow: hidden;
   position: relative;
+}
+.card-body h1{
+  font-family: fantasy;
+  color: #0069d9;
+}
+.font-highlighted{
+  font-style: italic;
+  color: red;
 }
 .card:hover img{
   transform: scale(1.2,1.2);

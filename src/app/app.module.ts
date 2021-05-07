@@ -13,6 +13,11 @@ import { AddPropertyComponent } from './property/add-property/add-property.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserRegesterComponent } from './user/user-regester/user-regester.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   { path: 'add-property', component: AddPropertyComponent },
@@ -40,7 +45,12 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    TooltipModule.forRoot(),
+    TabsModule.forRoot(),
+    ButtonsModule.forRoot(),
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
   ],
   providers: [
     SharedService
