@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-img-wrapper">
+    <img *ngIf="pet.img" class="card-img-top" src="assets/{{pet.img}}.jpg" class="card-img-top">
+    <img *ngIf="!pet.img" class="card-img-top" src="assets/default.jpg" class="card-img-top">
+    <ul *ngIf="!hideIcon" class="list-inline text-center member-icons animate">
+      <li class="list-inline-item">
+        <button class="btn btn-primary" routerLink='/pet-detail/{{pet.Id}}'>
+          <i class="fas fa-edit"></i>
+        </button>
+      </li>
+      <li class="list-inline-item">
+        <button class="btn btn-primary">
+          <i class="far fa-id-card"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body p-1">
+    <h1 class="mb-0">{{pet.Breed}} {{pet.Gender}}</h1>
+    in {{pet.City}}
+    <span *ngIf="pet.Name">,</span>
+    {{pet.Name}}
+    <h6 class="mt-2">{{pet.Price}} USD </h6>
+     
+
+    <hr class="mt-0 mb-2">
+
+    <h6 class="mb-0">Size:
+      <span class="font-highlighted">{{pet.Height}} cm,</span> |Weight:
+      <span class="font-highlighted">{{pet.Weight}}g</span>
+    </h6>
+
+  </div>
+</div>

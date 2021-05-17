@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddPropertyComponent } from './add-property.component';
+import { PetListComponent } from './pet-list.component';
 
-describe('AddPropertyComponent', () => {
-  let component: AddPropertyComponent;
-  let fixture: ComponentFixture<AddPropertyComponent>;
+describe('PetListComponent', () => {
+  let component: PetListComponent;
+  let fixture: ComponentFixture<PetListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddPropertyComponent ]
+      declarations: [ PetListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddPropertyComponent);
+    fixture = TestBed.createComponent(PetListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

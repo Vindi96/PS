@@ -1,0 +1,144 @@
+<div class="row mb-5">
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header">
+        <h3>List Your Pet Details</h3>
+      </div>
+      <div class="card-body shadow-lg p-3 bg-white">
+        <form (ngSubmit)="onSubmit()" [formGroup]="addPetForm">
+          <div class="tab-panel">
+            <tabset class="member-tabset" #formTabs>
+              <tab heading="Basic Info" formGroupName="BasicInfo">
+                <div class="form-group">
+                  <p>I want to</p>
+                  <div class="btn-group" btnRadioGroup formControlName="CatDog">
+                    <label class="btn btn-outline-primary mr-2" btnRadio=1 role="button" name="CatDog">Cat</label>
+                    <label class="btn btn-outline-primary " btnRadio=2 role="button" name="CstDog">Dog</label>
+                  </div>
+                  <div class="error-block" *ngIf="CatDog.invalid && nextClicked">
+                    Please select Dog or Cat
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>Breed</p>
+                  <div class="btn-group" btnRadioGroup formControlName="Breed" [(ngModel)]="petView.Breed">
+                    <select class="btn btn-outline-primary">
+                      <option disabled>Select Breed</option>
+                      <option>Choose Breed</option>
+                      <option *ngFor="let breed of breeds" class="btn btn-outline-primary mr-2" role="button" name="CatDog">{{breed}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>Gender</p>
+                  <div class="btn-group" btnRadioGroup formControlName="Gender" [(ngModel)]="petView.Gender">
+                    <label *ngFor="let gen of gender" class="btn btn-outline-primary mr-2" [btnRadio]="gen" tabindex="0" role="button" name="SellRent">{{gen}}</label>
+                  </div>
+                </div>
+
+
+                <div class="form-group col-12">
+                  <label for="name">Pet Name</label>
+                  <input type="name" class="form-control" formControlName='Name' [(ngModel)]="petView.Name">
+
+                </div>
+
+                <div class="form-group col-12">
+                  <label for="type">Height</label>
+                  <input type="name" class="form-control" formControlName="Height" [(ngModel)]="petView.Height">
+                </div>
+                <div class="form-group col-12">
+                  <label for="type">Weight</label>
+                  <input type="name" class="form-control" formControlName="Weight" [(ngModel)]="petView.Weight">
+                </div>
+
+
+
+                <div class="form-group col-12">
+                  <button type="button" class="btn btn-primary btn-block mr-2" (click)="selectTab(1, BasicInfo.valid)">Next</button>
+
+                </div>
+              </tab>
+              <tab heading="Pricing and Area" formGroupName="PriceInfo">
+                <div class="form-group col-12">
+                  <label>Price (in USD)</label>
+                  <input type="text" class="form-control" formControlName="Price" [(ngModel)]="petView.Price">
+                </div>
+                <div class="form-group col-12">
+                  <button type="button" class="btn btn-primary btn-block mr-2" (click)="selectTab(2, PriceInfo.valid)">Next</button>
+                  <button type="button" class="btn btn-primary btn-block mr-2" (click)="selectTab(0, PriceInfo.valid)">Back</button>
+                </div>
+              </tab>
+              <tab heading="Owner Data" formGroupName="OwnerInfo">
+                <div class="form-group col-12">
+                  <label>Owner Name</label>
+                  <input type="text" formControlName="Owner" class="form-control">
+                </div>
+
+                <div class="form-group col-12">
+                  <label>Address</label>
+                  <input type="text" formControlName="Address" class="form-control">
+                </div>
+
+                <div class="form-group col-12">
+                  <label>City</label>
+                  <input type="text" formControlName="City" class="form-control" [(ngModel)]="petView.City">
+                </div>
+
+
+                <div class="form-group col-12">
+                  <button type="button" class="btn btn-primary btn-block mr-2" (click)="selectTab(3, OwnerInfo.valid)">Next</button>
+                  <button type="button" class="btn btn-primary btn-block mr-2" (click)="selectTab(1, OwnerInfo.valid)">Back</button>
+                </div>
+              </tab>
+              <tab heading="Other Details" formGroupName="OtherInfo">
+
+
+                <div class="form-group col-3">
+                  <label>Posted On</label>
+                  <input type="text" placeholder="Datepicker" formControlName="PostedOn" class="form-control" bsDatepicker [bsConfig]="{containerClass: 'theme-dark-blue', dateInputFormat: 'YYYY-MM-DD'}">
+                </div>
+                <div class="form-group col-12">
+                  <label>Description</label>
+                  <textarea type="text" formControlName="Description" class="form-control" rows="6"></textarea>
+                </div>
+                <div class="form-group col-12">
+                  <button type="button" class="btn btn-primary btn-block mr-2" (click)="selectTab(4, OtherInfo.valid)">Next</button>
+                  <button type="button" class="btn btn-primary btn-block mr-2" (click)="selectTab(2, OtherInfo.valid)">Back</button>
+                </div>
+              </tab>
+              <tab heading="Photo Upload">
+                <div class="form-group col-12">
+                  <div class="photo-control">
+                    <button class="mt-5" type="button">Upload</button>
+                    <br> This is under construction
+                  </div>
+                </div>
+                <div class="form-group col-12">
+                  <button type="button" class="btn btn-primary btn-block mr-2" (click)="selectTab(3, BasicInfo.valid)">Back</button>
+                  <button type="reset" class="btn btn-primary btn-block mr-2" (click)="selectTab(3, BasicInfo.valid)">Cancel</button>
+                  <button type="submit" class="btn btn-primary btn-block mr-2" (click)="onSubmit">Save</button>
+
+                </div>
+              </tab>
+
+            </tabset>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card-header">
+      <h3> Pet Preview</h3>
+    </div>
+    <div class="shadow-lg p-3 bg-white">
+      <app-pet-card [pet]="petView" [hideIcon]="true"></app-pet-card>
+    </div>
+
+
+
+  </div>
+</div>
