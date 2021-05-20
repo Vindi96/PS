@@ -21,7 +21,7 @@ export class PetListComponent implements OnInit {
     this.service.getAllPets(this.CatDog).subscribe(
       data => {
         this.pets = data;
-        const newPet = JSON.parse(JSON.stringify(localStorage.getItem('pet')));
+        const newPet = JSON.parse(localStorage.getItem('pet') || '{}');
         if (newPet) {
           this.pets = [newPet, ...this.pets];
         }
